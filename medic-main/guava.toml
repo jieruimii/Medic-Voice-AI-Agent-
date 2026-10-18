@@ -1,0 +1,9 @@
+project_id = "gp-68a4b1b8-02c6-4e35-8265-3de6a4e8ce87"
+org_id = "6ad407b35431e43201a13b6b"
+name = "medic"
+call_direction = "inbound"
+base_image = "python-sandbox:3.14"
+phone_number = "+14849728166"
+tier = "guava-seed"
+replicas = 1
+enable_healthcheck = true

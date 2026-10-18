@@ -1,0 +1,13 @@
+[project]
+name = "medic"
+version = "0.1.0"
+description = "Conversational EMS documentation with deterministic review policy"
+requires-python = ">=3.11"
+dependencies = ["guava-sdk", "fastapi>=0.115", "uvicorn>=0.34"]
+
+[dependency-groups]
+dev = ["pytest>=8", "httpx>=0.28"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["backend/tests"]

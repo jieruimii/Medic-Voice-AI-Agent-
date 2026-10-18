@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#092e2d">
+  <title>MEDIC — Clinician Workspace</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%230d514a'/%3E%3Cpath d='M17 10h6v7h7v6h-7v7h-6v-7h-7v-6h7z' fill='%23d5f3ac'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script type="module" src="/assets/app.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="rail" aria-label="Medic workspace">
+      <a href="/" class="brand-symbol" aria-label="Medic home">✚</a>
+      <div class="rail-item active" title="Live encounter" aria-label="Live encounter"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM8 9h8M8 13h5"/></svg></div>
+      <div class="rail-line"></div><span class="rail-caption">CLINICIAN<br>WORKSPACE</span>
+      <span class="rail-bottom">M<span class="tiny-dot"></span></span>
+    </aside>
+    <div class="workspace">
+      <header class="topbar"><a class="wordmark" href="/">MEDIC<span>ENCOUNTER DOCUMENTATION</span></a><div class="workspace-label">CLINICIAN WORKSPACE <span class="avatar">M</span></div></header>
+      <main>
+        <div class="page-heading"><div><div class="eyebrow"><span class="live-dot"></span><span id="encounter-mode">CURRENT ENCOUNTER</span></div><h1>Clinician Workspace</h1><p class="subtitle">Encounter documentation and review.</p></div><div class="encounter-actions"><a id="return-live" class="button" href="/" hidden>Return to current encounter</a><button id="reset" class="button subtle"><span aria-hidden="true">↺</span> Start new demo</button></div></div>
+        <section class="call-strip" aria-label="Call connection"><div class="call-icon"><svg viewBox="0 0 24 24"><path d="M6 3l4 4-2 3a15 15 0 0 0 6 6l3-2 4 4-2 3C9 22 2 15 3 5z"/></svg></div><div><div class="small-label" id="line-label">GUAVA VOICE LINE</div><a id="phone" class="phone" href="#">Connecting…</a></div><div class="call-strip-end"><div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span id="call-status" class="status-pill">Waiting</span></div></section>
+        <div id="network-error" class="notice" role="alert" hidden></div>
+        <div id="history-notice" class="history-notice" hidden>Viewing a saved encounter. Incoming calls continue updating the current encounter.</div>
+        <details class="recent-panel" id="recent-panel"><summary>Recent encounters <span id="recent-count"></span></summary><div id="recent-encounters" class="recent-list">Loading encounter history…</div></details>
+        <section id="ready-banner" class="ready-banner" hidden><div class="ready-icon">✓</div><div><span class="eyebrow">ENCOUNTER PREPARED</span><h2>READY FOR CLINICIAN REVIEW</h2><p>0 blocking documentation issues. Your clinical review is the next step.</p><a href="/api/encounter/draft" class="export-link" download>Download review draft ↗</a></div></section>
+        <div class="content-grid">
+          <section class="encounter-panel panel"><div class="panel-heading"><div><h2>Structured encounter</h2><p id="encounter-meta">Documented facts and sources.</p></div><span class="record-icon">↗</span></div>
+            <div id="empty-state" class="empty-state"><div class="orb"><svg viewBox="0 0 48 48"><path d="M24 9v30M9 24h30"/></svg></div><span class="eyebrow">ENCOUNTER STATUS</span><h3>Waiting for encounter…</h3><p>Call the voice line to document an encounter.</p><div class="opening-quote">Voice input<br>Awaiting call</div><div class="empty-foot"><span class="live-dot"></span> Narrative capture, followed by documentation questions.</div></div>
+            <div id="encounter-sections" hidden></div>
+            <div class="provenance-note"><span>◈</span> Source references are available for documented facts.</div>
+          </section>
+          <aside class="review-column"><section class="review-panel panel"><div class="panel-heading"><div><div class="eyebrow">DETERMINISTIC VALIDATION</div><h2>Documentation review</h2></div><span class="shield-icon">◇</span></div><div class="review-intro">A focused check for documentation gaps.<br>Always subject to clinician review.</div><div id="review-list" class="review-list"></div><div class="review-total"><div id="issue-count">Awaiting encounter</div><span id="rule-count">12 prototype rules</span></div><div id="issues" class="issues"></div></section>
+            <section class="conversation-card"><div class="eyebrow"><span class="live-dot"></span> DOCUMENTATION STATUS</div><p id="spoken-line">Awaiting encounter narrative.</p><div id="conversation-caption">Follow-up questions address unresolved documentation issues.</div></section>
+            <div class="principle"><strong>Review responsibility</strong><p>AI understands language.<br>Code enforces documentation policy.<br>Humans establish clinical truth.</p></div>
+          </aside>
+        </div>
+        <details id="source-drawer" class="source-drawer"><summary><span>◈ &nbsp; Source & audit</span><span id="source-count">No source statements yet</span></summary><div class="audit-grid"><div><h3>Source narrative</h3><div id="narrative" class="narrative">Source statements will appear here.</div></div><div><h3>Review trail</h3><div id="trail">Follow-up questions will appear here.</div><a href="/api/encounter/report" class="export-link" download>Download encounter & provenance ↗</a></div></div></details>
+        <footer><span>Prototype documentation support — clinician review required.</span><span>NEMSIS-inspired validation prototype <span class="footer-dot">·</span> GUAVA VOICE AI</span></footer>
+      </main>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>
